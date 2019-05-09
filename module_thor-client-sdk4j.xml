@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_thor-client-sdk4j" default="compile.module.thor-client-sdk4j">
+  <dirname property="module.thor-client-sdk4j.basedir" file="${ant.file.module_thor-client-sdk4j}"/>
+  
+  <property name="module.jdk.home.thor-client-sdk4j" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.thor-client-sdk4j" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.thor-client-sdk4j" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.thor-client-sdk4j" value="-encoding UTF-8 -source 8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="thor-client-sdk4j.output.dir" value="${module.thor-client-sdk4j.basedir}/target/classes"/>
+  <property name="thor-client-sdk4j.testoutput.dir" value="${module.thor-client-sdk4j.basedir}/target/test-classes"/>
+  
+  <path id="thor-client-sdk4j.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="thor-client-sdk4j.module.production.classpath">
+    <path refid="${module.jdk.classpath.thor-client-sdk4j}"/>
+    <path refid="library.maven:_com.alibaba:fastjson:1.2.37.classpath"/>
+    <path refid="library.maven:_org.bouncycastle:bcprov-jdk15on:1.59.classpath"/>
+    <path refid="library.maven:_com.rfksystems:blake2b:1.0.0.classpath"/>
+    <path refid="library.maven:_com.mashape.unirest:unirest-java:1.4.9.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.5.2.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.4.4.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.2.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpasyncclient:4.1.1.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore-nio:4.4.4.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpmime:4.5.2.classpath"/>
+    <path refid="library.maven:_org.json:json:20160212.classpath"/>
+    <path refid="library.maven:_io.mikael:urlbuilder:2.0.7.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-databind:2.9.5.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-annotations:2.9.0.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-core:2.9.5.classpath"/>
+    <path refid="library.maven:_org.slf4j:jcl-over-slf4j:1.7.25.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.25.classpath"/>
+    <path refid="library.maven:_ch.qos.logback:logback-core:1.1.7.classpath"/>
+    <path refid="library.maven:_ch.qos.logback:logback-classic:1.1.7.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi:3.17.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.10.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-collections4:4.1.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi-ooxml:3.17.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi-ooxml-schemas:3.17.classpath"/>
+    <path refid="library.maven:_org.apache.xmlbeans:xmlbeans:2.6.0.classpath"/>
+    <path refid="library.maven:_stax:stax-api:1.0.1.classpath"/>
+    <path refid="library.maven:_com.github.virtuald:curvesapi:1.04.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.websocket:websocket-client:9.4.12.v20180830.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-client:9.4.12.v20180830.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-http:9.4.12.v20180830.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-xml:9.4.12.v20180830.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-util:9.4.12.v20180830.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-io:9.4.12.v20180830.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.websocket:websocket-common:9.4.12.v20180830.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.websocket:websocket-api:9.4.12.v20180830.classpath"/>
+  </path>
+  
+  <path id="thor-client-sdk4j.runtime.production.module.classpath">
+    <pathelement location="${thor-client-sdk4j.output.dir}"/>
+    <path refid="library.maven:_com.alibaba:fastjson:1.2.37.classpath"/>
+    <path refid="library.maven:_org.bouncycastle:bcprov-jdk15on:1.59.classpath"/>
+    <path refid="library.maven:_com.rfksystems:blake2b:1.0.0.classpath"/>
+    <path refid="library.maven:_com.mashape.unirest:unirest-java:1.4.9.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.5.2.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.4.4.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.2.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpasyncclient:4.1.1.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore-nio:4.4.4.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpmime:4.5.2.classpath"/>
+    <path refid="library.maven:_org.json:json:20160212.classpath"/>
+    <path refid="library.maven:_io.mikael:urlbuilder:2.0.7.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-databind:2.9.5.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-annotations:2.9.0.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-core:2.9.5.classpath"/>
+    <path refid="library.maven:_org.slf4j:jcl-over-slf4j:1.7.25.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.25.classpath"/>
+    <path refid="library.maven:_ch.qos.logback:logback-core:1.1.7.classpath"/>
+    <path refid="library.maven:_ch.qos.logback:logback-classic:1.1.7.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi:3.17.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.10.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-collections4:4.1.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi-ooxml:3.17.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi-ooxml-schemas:3.17.classpath"/>
+    <path refid="library.maven:_org.apache.xmlbeans:xmlbeans:2.6.0.classpath"/>
+    <path refid="library.maven:_stax:stax-api:1.0.1.classpath"/>
+    <path refid="library.maven:_com.github.virtuald:curvesapi:1.04.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.websocket:websocket-client:9.4.12.v20180830.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-client:9.4.12.v20180830.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-http:9.4.12.v20180830.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-xml:9.4.12.v20180830.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-util:9.4.12.v20180830.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-io:9.4.12.v20180830.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.websocket:websocket-common:9.4.12.v20180830.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.websocket:websocket-api:9.4.12.v20180830.classpath"/>
+  </path>
+  
+  <path id="thor-client-sdk4j.module.classpath">
+    <path refid="${module.jdk.classpath.thor-client-sdk4j}"/>
+    <pathelement location="${thor-client-sdk4j.output.dir}"/>
+    <path refid="library.maven:_com.alibaba:fastjson:1.2.37.classpath"/>
+    <path refid="library.maven:_junit:junit:4.12.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+    <path refid="library.maven:_org.bouncycastle:bcprov-jdk15on:1.59.classpath"/>
+    <path refid="library.maven:_com.rfksystems:blake2b:1.0.0.classpath"/>
+    <path refid="library.maven:_com.mashape.unirest:unirest-java:1.4.9.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.5.2.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.4.4.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.2.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpasyncclient:4.1.1.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore-nio:4.4.4.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpmime:4.5.2.classpath"/>
+    <path refid="library.maven:_org.json:json:20160212.classpath"/>
+    <path refid="library.maven:_io.mikael:urlbuilder:2.0.7.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-databind:2.9.5.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-annotations:2.9.0.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-core:2.9.5.classpath"/>
+    <path refid="library.maven:_org.slf4j:jcl-over-slf4j:1.7.25.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.25.classpath"/>
+    <path refid="library.maven:_ch.qos.logback:logback-core:1.1.7.classpath"/>
+    <path refid="library.maven:_ch.qos.logback:logback-classic:1.1.7.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi:3.17.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.10.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-collections4:4.1.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi-ooxml:3.17.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi-ooxml-schemas:3.17.classpath"/>
+    <path refid="library.maven:_org.apache.xmlbeans:xmlbeans:2.6.0.classpath"/>
+    <path refid="library.maven:_stax:stax-api:1.0.1.classpath"/>
+    <path refid="library.maven:_com.github.virtuald:curvesapi:1.04.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.websocket:websocket-client:9.4.12.v20180830.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-client:9.4.12.v20180830.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-http:9.4.12.v20180830.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-xml:9.4.12.v20180830.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-util:9.4.12.v20180830.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-io:9.4.12.v20180830.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.websocket:websocket-common:9.4.12.v20180830.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.websocket:websocket-api:9.4.12.v20180830.classpath"/>
+  </path>
+  
+  <path id="thor-client-sdk4j.runtime.module.classpath">
+    <pathelement location="${thor-client-sdk4j.testoutput.dir}"/>
+    <pathelement location="${thor-client-sdk4j.output.dir}"/>
+    <path refid="library.maven:_com.alibaba:fastjson:1.2.37.classpath"/>
+    <path refid="library.maven:_junit:junit:4.12.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+    <path refid="library.maven:_org.bouncycastle:bcprov-jdk15on:1.59.classpath"/>
+    <path refid="library.maven:_com.rfksystems:blake2b:1.0.0.classpath"/>
+    <path refid="library.maven:_com.mashape.unirest:unirest-java:1.4.9.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.5.2.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.4.4.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.2.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpasyncclient:4.1.1.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore-nio:4.4.4.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpmime:4.5.2.classpath"/>
+    <path refid="library.maven:_org.json:json:20160212.classpath"/>
+    <path refid="library.maven:_io.mikael:urlbuilder:2.0.7.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-databind:2.9.5.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-annotations:2.9.0.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-core:2.9.5.classpath"/>
+    <path refid="library.maven:_org.slf4j:jcl-over-slf4j:1.7.25.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.25.classpath"/>
+    <path refid="library.maven:_ch.qos.logback:logback-core:1.1.7.classpath"/>
+    <path refid="library.maven:_ch.qos.logback:logback-classic:1.1.7.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi:3.17.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.10.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-collections4:4.1.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi-ooxml:3.17.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi-ooxml-schemas:3.17.classpath"/>
+    <path refid="library.maven:_org.apache.xmlbeans:xmlbeans:2.6.0.classpath"/>
+    <path refid="library.maven:_stax:stax-api:1.0.1.classpath"/>
+    <path refid="library.maven:_com.github.virtuald:curvesapi:1.04.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.websocket:websocket-client:9.4.12.v20180830.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-client:9.4.12.v20180830.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-http:9.4.12.v20180830.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-xml:9.4.12.v20180830.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-util:9.4.12.v20180830.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty:jetty-io:9.4.12.v20180830.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.websocket:websocket-common:9.4.12.v20180830.classpath"/>
+    <path refid="library.maven:_org.eclipse.jetty.websocket:websocket-api:9.4.12.v20180830.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.thor-client-sdk4j">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.thor-client-sdk4j">
+    <patternset refid="excluded.from.module.thor-client-sdk4j"/>
+  </patternset>
+  
+  <path id="thor-client-sdk4j.module.sourcepath">
+    <dirset dir="${module.thor-client-sdk4j.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  <path id="thor-client-sdk4j.module.test.sourcepath">
+    <dirset dir="${module.thor-client-sdk4j.basedir}">
+      <include name="src/test/java"/>
+      <include name="src/test/resources"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.thor-client-sdk4j" depends="compile.module.thor-client-sdk4j.production,compile.module.thor-client-sdk4j.tests" description="Compile module thor-client-sdk4j"/>
+  
+  <target name="compile.module.thor-client-sdk4j.production" depends="register.custom.compilers" description="Compile module thor-client-sdk4j; production classes">
+    <mkdir dir="${thor-client-sdk4j.output.dir}"/>
+    <javac2 destdir="${thor-client-sdk4j.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.thor-client-sdk4j}/javac">
+      <compilerarg line="${compiler.args.thor-client-sdk4j}"/>
+      <bootclasspath refid="thor-client-sdk4j.module.bootclasspath"/>
+      <classpath refid="thor-client-sdk4j.module.production.classpath"/>
+      <src refid="thor-client-sdk4j.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.thor-client-sdk4j"/>
+    </javac2>
+    
+    <copy todir="${thor-client-sdk4j.output.dir}">
+      <fileset dir="${module.thor-client-sdk4j.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.thor-client-sdk4j.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.thor-client-sdk4j.tests" depends="register.custom.compilers,compile.module.thor-client-sdk4j.production" description="compile module thor-client-sdk4j; test classes" unless="skip.tests">
+    <mkdir dir="${thor-client-sdk4j.testoutput.dir}"/>
+    <javac2 destdir="${thor-client-sdk4j.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.thor-client-sdk4j}/javac">
+      <compilerarg line="${compiler.args.thor-client-sdk4j}"/>
+      <bootclasspath refid="thor-client-sdk4j.module.bootclasspath"/>
+      <classpath refid="thor-client-sdk4j.module.classpath"/>
+      <src refid="thor-client-sdk4j.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.thor-client-sdk4j"/>
+    </javac2>
+    
+    <copy todir="${thor-client-sdk4j.testoutput.dir}">
+      <fileset dir="${module.thor-client-sdk4j.basedir}/src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.thor-client-sdk4j.basedir}/src/test/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.thor-client-sdk4j" description="cleanup module">
+    <delete dir="${thor-client-sdk4j.output.dir}"/>
+    <delete dir="${thor-client-sdk4j.testoutput.dir}"/>
+  </target>
+</project>

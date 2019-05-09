@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Class-Path: xmlbeans-2.6.0.jar urlbuilder-2.0.7.jar json-20160212.jar 
+ poi-ooxml-3.17.jar bcprov-jdk15on-1.59.jar httpcore-nio-4.4.4.jar web
+ socket-api-9.4.12.v20180830.jar unirest-java-1.4.9.jar jetty-util-9.4
+ .12.v20180830.jar poi-ooxml-schemas-3.17.jar jackson-annotations-2.9.
+ 0.jar jackson-databind-2.9.5.jar poi-3.17.jar websocket-common-9.4.12
+ .v20180830.jar jcl-over-slf4j-1.7.25.jar logback-classic-1.1.7.jar fa
+ stjson-1.2.37.jar logback-core-1.1.7.jar httpmime-4.5.2.jar commons-l
+ ogging-1.2.jar jetty-http-9.4.12.v20180830.jar httpcore-4.4.4.jar jet
+ ty-io-9.4.12.v20180830.jar slf4j-api-1.7.25.jar stax-api-1.0.1.jar bl
+ ake2b-1.0.0.jar commons-collections4-4.1.jar httpclient-4.5.2.jar htt
+ pasyncclient-4.1.1.jar jetty-client-9.4.12.v20180830.jar jetty-xml-9.
+ 4.12.v20180830.jar commons-codec-1.10.jar websocket-client-9.4.12.v20
+ 180830.jar jackson-core-2.9.5.jar curvesapi-1.04.jar
+Main-Class: com.vechain.thorclient.console.Main
+

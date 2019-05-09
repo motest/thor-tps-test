@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="thor-client-sdk4j" default="all">
+  
+  
+  <property file="thor-client-sdk4j.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.egg"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+    <include name="*.apk"/>
+    <include name="*.swc"/>
+    <include name="*.war"/>
+    <include name="*.zip"/>
+    <include name="*.ane"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/ext/access-bridge-64.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/jfxrt.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/jfxswt.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.maven:_ch.qos.logback:logback-classic:1.1.7.classpath">
+    <pathelement location="${path.variable.maven_repository}/ch/qos/logback/logback-classic/1.1.7/logback-classic-1.1.7.jar"/>
+  </path>
+  
+  <path id="library.maven:_ch.qos.logback:logback-core:1.1.7.classpath">
+    <pathelement location="${path.variable.maven_repository}/ch/qos/logback/logback-core/1.1.7/logback-core-1.1.7.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.alibaba:fastjson:1.2.37.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/alibaba/fastjson/1.2.37/fastjson-1.2.37.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.fasterxml.jackson.core:jackson-annotations:2.9.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/fasterxml/jackson/core/jackson-annotations/2.9.0/jackson-annotations-2.9.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.fasterxml.jackson.core:jackson-core:2.9.5.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/fasterxml/jackson/core/jackson-core/2.9.5/jackson-core-2.9.5.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.fasterxml.jackson.core:jackson-databind:2.9.5.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/fasterxml/jackson/core/jackson-databind/2.9.5/jackson-databind-2.9.5.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.github.virtuald:curvesapi:1.04.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/github/virtuald/curvesapi/1.04/curvesapi-1.04.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.mashape.unirest:unirest-java:1.4.9.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/mashape/unirest/unirest-java/1.4.9/unirest-java-1.4.9.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.rfksystems:blake2b:1.0.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/rfksystems/blake2b/1.0.0/blake2b-1.0.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_commons-codec:commons-codec:1.10.classpath">
+    <pathelement location="${path.variable.maven_repository}/commons-codec/commons-codec/1.10/commons-codec-1.10.jar"/>
+  </path>
+  
+  <path id="library.maven:_commons-logging:commons-logging:1.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/commons-logging/commons-logging/1.2/commons-logging-1.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_io.mikael:urlbuilder:2.0.7.classpath">
+    <pathelement location="${path.variable.maven_repository}/io/mikael/urlbuilder/2.0.7/urlbuilder-2.0.7.jar"/>
+  </path>
+  
+  <path id="library.maven:_junit:junit:4.12.classpath">
+    <pathelement location="${path.variable.maven_repository}/junit/junit/4.12/junit-4.12.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.apache.commons:commons-collections4:4.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/apache/commons/commons-collections4/4.1/commons-collections4-4.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.apache.httpcomponents:httpasyncclient:4.1.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/apache/httpcomponents/httpasyncclient/4.1.1/httpasyncclient-4.1.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.apache.httpcomponents:httpclient:4.5.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/apache/httpcomponents/httpclient/4.5.2/httpclient-4.5.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.apache.httpcomponents:httpcore-nio:4.4.4.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/apache/httpcomponents/httpcore-nio/4.4.4/httpcore-nio-4.4.4.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.apache.httpcomponents:httpcore:4.4.4.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/apache/httpcomponents/httpcore/4.4.4/httpcore-4.4.4.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.apache.httpcomponents:httpmime:4.5.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/apache/httpcomponents/httpmime/4.5.2/httpmime-4.5.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.apache.poi:poi-ooxml-schemas:3.17.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/apache/poi/poi-ooxml-schemas/3.17/poi-ooxml-schemas-3.17.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.apache.poi:poi-ooxml:3.17.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/apache/poi/poi-ooxml/3.17/poi-ooxml-3.17.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.apache.poi:poi:3.17.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/apache/poi/poi/3.17/poi-3.17.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.apache.xmlbeans:xmlbeans:2.6.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/apache/xmlbeans/xmlbeans/2.6.0/xmlbeans-2.6.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.bouncycastle:bcprov-jdk15on:1.59.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/bouncycastle/bcprov-jdk15on/1.59/bcprov-jdk15on-1.59.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.eclipse.jetty.websocket:websocket-api:9.4.12.v20180830.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/eclipse/jetty/websocket/websocket-api/9.4.12.v20180830/websocket-api-9.4.12.v20180830.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.eclipse.jetty.websocket:websocket-client:9.4.12.v20180830.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/eclipse/jetty/websocket/websocket-client/9.4.12.v20180830/websocket-client-9.4.12.v20180830.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.eclipse.jetty.websocket:websocket-common:9.4.12.v20180830.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/eclipse/jetty/websocket/websocket-common/9.4.12.v20180830/websocket-common-9.4.12.v20180830.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.eclipse.jetty:jetty-client:9.4.12.v20180830.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/eclipse/jetty/jetty-client/9.4.12.v20180830/jetty-client-9.4.12.v20180830.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.eclipse.jetty:jetty-http:9.4.12.v20180830.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/eclipse/jetty/jetty-http/9.4.12.v20180830/jetty-http-9.4.12.v20180830.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.eclipse.jetty:jetty-io:9.4.12.v20180830.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/eclipse/jetty/jetty-io/9.4.12.v20180830/jetty-io-9.4.12.v20180830.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.eclipse.jetty:jetty-util:9.4.12.v20180830.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/eclipse/jetty/jetty-util/9.4.12.v20180830/jetty-util-9.4.12.v20180830.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.eclipse.jetty:jetty-xml:9.4.12.v20180830.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/eclipse/jetty/jetty-xml/9.4.12.v20180830/jetty-xml-9.4.12.v20180830.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.json:json:20160212.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/json/json/20160212/json-20160212.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.slf4j:jcl-over-slf4j:1.7.25.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/slf4j/jcl-over-slf4j/1.7.25/jcl-over-slf4j-1.7.25.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.slf4j:slf4j-api:1.7.25.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar"/>
+  </path>
+  
+  <path id="library.maven:_stax:stax-api:1.0.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/stax/stax-api/1.0.1/stax-api-1.0.1.jar"/>
+  </path>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <fileset dir="${javac2.home}">
+      <include name="javac2.jar"/>
+      <include name="jdom.jar"/>
+      <include name="asm-all*.jar"/>
+      <include name="jgoodies-forms.jar"/>
+    </fileset>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  <import file="${basedir}/module_thor-client-sdk4j.xml"/>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.thor-client-sdk4j" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.thor-client-sdk4j" description="build all modules"/>
+  
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.thor-client-sdk4j:jar" value="${basedir}/out/artifacts/thor_client_sdk4j_jar"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+    <property name="temp.jar.path.thor-client-sdk4j.jar" value="${artifacts.temp.dir}/thor-client-sdk4j.jar"/>
+  </target>
+  
+  <target name="artifact.thor-client-sdk4j:jar" depends="init.artifacts, compile.module.thor-client-sdk4j" description="Build &#39;thor-client-sdk4j:jar&#39; artifact">
+    <property name="artifact.temp.output.thor-client-sdk4j:jar" value="${artifacts.temp.dir}/thor_client_sdk4j_jar"/>
+    <mkdir dir="${artifact.temp.output.thor-client-sdk4j:jar}"/>
+    <jar destfile="${temp.jar.path.thor-client-sdk4j.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain">
+      <zipfileset dir="${thor-client-sdk4j.output.dir}"/>
+      <zipfileset src="${path.variable.maven_repository}/org/apache/xmlbeans/xmlbeans/2.6.0/xmlbeans-2.6.0.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/io/mikael/urlbuilder/2.0.7/urlbuilder-2.0.7.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/org/json/json/20160212/json-20160212.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/org/apache/poi/poi-ooxml/3.17/poi-ooxml-3.17.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/org/bouncycastle/bcprov-jdk15on/1.59/bcprov-jdk15on-1.59.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/org/apache/httpcomponents/httpcore-nio/4.4.4/httpcore-nio-4.4.4.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/org/eclipse/jetty/websocket/websocket-api/9.4.12.v20180830/websocket-api-9.4.12.v20180830.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/com/mashape/unirest/unirest-java/1.4.9/unirest-java-1.4.9.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/org/eclipse/jetty/jetty-util/9.4.12.v20180830/jetty-util-9.4.12.v20180830.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/org/apache/poi/poi-ooxml-schemas/3.17/poi-ooxml-schemas-3.17.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/com/fasterxml/jackson/core/jackson-annotations/2.9.0/jackson-annotations-2.9.0.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/com/fasterxml/jackson/core/jackson-databind/2.9.5/jackson-databind-2.9.5.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/org/apache/poi/poi/3.17/poi-3.17.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/org/eclipse/jetty/websocket/websocket-common/9.4.12.v20180830/websocket-common-9.4.12.v20180830.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/org/slf4j/jcl-over-slf4j/1.7.25/jcl-over-slf4j-1.7.25.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/ch/qos/logback/logback-classic/1.1.7/logback-classic-1.1.7.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/com/alibaba/fastjson/1.2.37/fastjson-1.2.37.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/ch/qos/logback/logback-core/1.1.7/logback-core-1.1.7.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/org/apache/httpcomponents/httpmime/4.5.2/httpmime-4.5.2.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/commons-logging/commons-logging/1.2/commons-logging-1.2.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/org/eclipse/jetty/jetty-http/9.4.12.v20180830/jetty-http-9.4.12.v20180830.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/org/apache/httpcomponents/httpcore/4.4.4/httpcore-4.4.4.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/org/eclipse/jetty/jetty-io/9.4.12.v20180830/jetty-io-9.4.12.v20180830.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/stax/stax-api/1.0.1/stax-api-1.0.1.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/com/rfksystems/blake2b/1.0.0/blake2b-1.0.0.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/org/apache/commons/commons-collections4/4.1/commons-collections4-4.1.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/org/apache/httpcomponents/httpclient/4.5.2/httpclient-4.5.2.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/org/apache/httpcomponents/httpasyncclient/4.1.1/httpasyncclient-4.1.1.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/org/eclipse/jetty/jetty-client/9.4.12.v20180830/jetty-client-9.4.12.v20180830.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/org/eclipse/jetty/jetty-xml/9.4.12.v20180830/jetty-xml-9.4.12.v20180830.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/commons-codec/commons-codec/1.10/commons-codec-1.10.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/org/eclipse/jetty/websocket/websocket-client/9.4.12.v20180830/websocket-client-9.4.12.v20180830.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/com/fasterxml/jackson/core/jackson-core/2.9.5/jackson-core-2.9.5.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/com/github/virtuald/curvesapi/1.04/curvesapi-1.04.jar"/>
+    </jar>
+    <copy file="${temp.jar.path.thor-client-sdk4j.jar}" tofile="${artifact.temp.output.thor-client-sdk4j:jar}/thor-client-sdk4j.jar"/>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.thor-client-sdk4j:jar" description="Build all artifacts">
+    <mkdir dir="${artifact.output.thor-client-sdk4j:jar}"/>
+    <copy todir="${artifact.output.thor-client-sdk4j:jar}">
+      <fileset dir="${artifact.temp.output.thor-client-sdk4j:jar}"/>
+    </copy>
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+</project>
