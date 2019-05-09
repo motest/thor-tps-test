@@ -1,3 +1,19 @@
+# Thor TPS Test
+
+1. start thor node
+``
+docker run --privileged -d  -v /opt/thor:/root/.org.vechain.thor  -p 8669:8669 -p 11235:11235 -p 11235:11235/udp  --name thor vechain/thor solo --api-addr 0.0.0.0:8669 --gas-limit 100000000000
+``
+2.run the test
+``java
+java -jar thor-client-sdk4j.jar -test
+``
+3.check logs
+``java
+java -jar thor-client-sdk4j.jar -log
+``
+
+
 # Thor Java Client SDK
 [![Build Status](https://travis-ci.org/vechain/thor-client-sdk4j.svg?branch=master)](https://travis-ci.org/vechain/thor-client-sdk4j.svg?branch=master)
 
